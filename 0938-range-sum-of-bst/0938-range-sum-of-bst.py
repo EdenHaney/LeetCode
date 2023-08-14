@@ -9,12 +9,11 @@ class Solution:
         self.sum = 0
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         # recurse tree and update sum with any values within range
+        add = 0
         if root is None:
-            return self.sum
+            return 0
         if root.val >= low and root.val <= high:
-            self.sum += root.val
-        self.rangeSumBST(root.left, low, high)
-        self.rangeSumBST(root.right, low, high)
-        return self.sum
+            add = root.val
+        return add + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
 
         
