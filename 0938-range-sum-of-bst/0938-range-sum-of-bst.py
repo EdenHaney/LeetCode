@@ -5,8 +5,6 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    # def __init__(self):
-        # self.sum = 0
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         # recurse tree and update sum with any values within range
         add = 0
