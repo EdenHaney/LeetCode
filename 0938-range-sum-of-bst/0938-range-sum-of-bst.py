@@ -9,8 +9,9 @@ class Solution:
         # recurse tree and update sum with any values within range
         if root is None:
             return 0
+        add = 0
         if root.val >= low and root.val <= high:
-            return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
-        return self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+            add = root.val
+        return add + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
 
         
