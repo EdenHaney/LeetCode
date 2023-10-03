@@ -6,7 +6,6 @@ class Solution:
                 unique[i] += 1
             else:
                 unique[i] = 1
-        print(unique)
         return len(unique.values()) == len(set(unique.values()))
 
         
