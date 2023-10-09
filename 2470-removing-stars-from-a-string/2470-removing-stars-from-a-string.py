@@ -3,10 +3,7 @@ class Solution:
         index = s.find('*')
         while index >= 0:
             s = remove_characters(s, index)
-            if index > 0:
-                index = s.find('*', index-1)
-            else:
-                index = s.find('*', index)
+            index = s.find('*')
         return s
 
     
