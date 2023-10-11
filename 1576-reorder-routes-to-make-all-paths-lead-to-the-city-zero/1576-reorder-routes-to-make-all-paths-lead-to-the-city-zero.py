@@ -1,20 +1,20 @@
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
-        graph = defaultdict(set)
-        for a, b in connections:
-            graph[a].add((b, True))
-            graph[b].add((a, False))
-        
-        queue = deque([(0, False)])
-        ans = 0
-        visited = set()
-        while queue:
-            city, needs_flipped = queue.popleft()
-            visited.add(city)
-            if needs_flipped:
-                ans += 1
-            for neighbour in graph[city]:
-                if neighbour[0] not in visited:
-                    queue.append(neighbour)
-        return ans
+        cities_dict = defaultdict(list)
+        for a,b in connections:
+            cities_dict[a].append((b,True))
+            cities_dict[b].append((a,False))
+        print(cities_dict)
+        count = 0
+        cities = [0]
+        cities_seen = set()
+        while(cities):
+            node = cities.pop()
+            cities_seen.add(node)
+            for next_node, pointing_to in cities_dict[node]:
+                if next_node not in cities_seen:
+                    cities.append(next_node)
+                    if pointing_to:
+                        count += 1
+        return count
                     
