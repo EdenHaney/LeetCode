@@ -9,6 +9,7 @@ class Solution:
                     rotten.append((i,j))
                 elif grid[i][j] == 1:
                     fresh.append((i,j))
+        # step 2: for each currently rotten orange, see if it can turn any fresh orange
         count = 0
         len_fresh = len(fresh)
         new_rotten = deque()
