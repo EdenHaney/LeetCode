@@ -19,14 +19,12 @@ class Solution:
             right_node = r.pop(0)
             if left_node and right_node:
                 if left_node.val != right_node.val:
-                    print("a")
                     return False
                 l.append(left_node.left)
                 l.append(left_node.right)
                 r.append(right_node.right)
                 r.append(right_node.left)
             elif left_node or right_node:
-                print("b")
                 return False
         return len(l) == len(r)
         
